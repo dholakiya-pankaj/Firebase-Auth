@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SagaUxAssignment</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password_heading">Forgot Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="forgot_password"><u>Forgot password?</u></string>
+    <string name="sign_up_link">Don\'t have account already? <u><b>Sign Up</b></u> here.</string>
+    <string name="login_link">Already have an account? <u><b>Login</b></u> from here.</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="upload_image">Upload Profile Image</string>
+    <string name="preview_image">Preview Image</string>
+    <string name="upload_image_to_server">Upload image to server</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "381085531711",
+    "project_id": "sagauxassignment",
+    "storage_bucket": "sagauxassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381085531711:android:cc694028d7e28d4a03828a",
+        "android_client_info": {
+          "package_name": "com.sagauxassignment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381085531711-3i8n858avf29a7b7hq4h40nbjpg46n7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeJjhVlry4KCRAyIdYSkGGLM-GNNcAH9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381085531711-3i8n858avf29a7b7hq4h40nbjpg46n7q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
