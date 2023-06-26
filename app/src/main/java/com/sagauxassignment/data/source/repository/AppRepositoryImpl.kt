@@ -34,4 +34,8 @@ class AppRepositoryImpl @Inject constructor(
     override suspend fun getUserList(): ResultDataState<Users> {
         return appDataSource.getUserList()
     }
+
+    override suspend fun logout(): ResultDataState<Boolean> {
+        return appDataSource.logout()
+    }
 }

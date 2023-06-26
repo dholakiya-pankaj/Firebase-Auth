@@ -9,4 +9,5 @@ interface AppRepository {
     suspend fun resetPasswordWithFirebase(email: String): ResultDataState<Boolean>
     suspend fun uploadImageOnFirebase(imageUri: Uri): ResultDataState<Uri?>
     suspend fun getUserList(): ResultDataState<Users>
+    suspend fun logout(): ResultDataState<Boolean>
 }

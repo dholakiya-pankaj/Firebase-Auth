@@ -17,17 +17,19 @@
 
         <ImageView
             android:id="@+id/ivProfileImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:minHeight="200dp"
             android:minWidth="200dp"
-            android:layout_marginTop="32dp"
+            android:maxWidth="300dp"
+            android:maxHeight="300dp"
+            android:layout_margin="10dp"
             android:contentDescription="@string/profile_image"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintBottom_toTopOf="@+id/btnUploadImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/updateProfileToolbar" />
 
         <Button
             android:id="@+id/btnUploadImage"
@@ -35,7 +37,6 @@
             android:layout_height="wrap_content"
             android:text="@string/upload_image"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@id/btnShowUsersList"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -46,7 +47,17 @@
             android:layout_height="wrap_content"
             android:text="@string/show_users_list"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btnLogOut"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

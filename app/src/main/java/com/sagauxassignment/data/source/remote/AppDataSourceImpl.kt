@@ -105,4 +105,13 @@ class AppDataSourceImpl @Inject constructor(
 
         return ResultDataState.ErrorResult(ErrorEntity.Unknown)
     }
+
+    override suspend fun logout(): ResultDataState<Boolean> {
+        return try {
+            firebaseAuth.signOut()
+            ResultDataState.Success(true)
+        } catch (e: Exception) {
+            ResultDataState.ErrorMessage(e.message.toString())
+        }
+    }
 }

@@ -89,6 +89,13 @@ class ProfileActivity : AppCompatActivity() {
             val errorMessage = it.ifEmpty { "Something went wrong" }
             showToast(errorMessage)
         }
+
+        profileViewModel.logout.observe(this) {
+            if(it == true) {
+                startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+                finish()
+            }
+        }
     }
 
     private fun initClickListener() {
@@ -99,6 +106,10 @@ class ProfileActivity : AppCompatActivity() {
 
             btnShowUsersList.setOnClickListener {
                 startActivity(Intent(this@ProfileActivity, UserListActivity::class.java))
+            }
+
+            btnLogOut.setOnClickListener {
+                profileViewModel.logout()
             }
         }
     }

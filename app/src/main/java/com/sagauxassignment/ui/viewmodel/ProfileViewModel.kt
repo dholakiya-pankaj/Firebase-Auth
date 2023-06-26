@@ -22,6 +22,9 @@ class ProfileViewModel @Inject constructor(
     private val _isProfileImageUploaded = MutableLiveData<Uri?>()
     val isProfileImageUploaded: LiveData<Uri?> get() = _isProfileImageUploaded
 
+    private val _logout = MutableLiveData<Boolean?>()
+    val logout: LiveData<Boolean?> get() = _logout
+
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> get() = _errorMessage
 
@@ -40,6 +43,27 @@ class ProfileViewModel @Inject constructor(
                 else -> {
                     _showLoading.value = false
                     _errorMessage.value = "Unexpected error"
+                }
+            }
+        }
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            _showLoading.value = true
+            when(val result = repository.logout()) {
+                is ResultDataState.Success -> {
+                    _showLoading.value = true
+                    _logout.value = result.data
+                }
+
+                is ResultDataState.ErrorMessage -> {
+                    _showLoading.value = false
+                    _errorMessage.value = result.errorMessage
+                }
+                else -> {
+                    _showLoading.value = false
+                    _errorMessage.value = "Unexpected error occur."
                 }
             }
         }
