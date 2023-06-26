@@ -8,6 +8,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.activity.UserListActivity">
 
+        <include
+            android:id="@+id/usersListToolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUserList"
             android:layout_width="0dp"

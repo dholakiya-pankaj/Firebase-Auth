@@ -23,6 +23,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_forgot_password)
 
+        binding?.forgotPassToolbar?.tvTitle?.text = getString(R.string.forgot_password_heading)
         setUpObserver()
         initClickListener()
         addTextWatcher()

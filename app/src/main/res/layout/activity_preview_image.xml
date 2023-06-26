@@ -8,6 +8,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.activity.PreviewImageActivity">
 
+        <include
+            android:id="@+id/previewImageToolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <ImageView
             android:id="@+id/ivPreviewImage"
             android:layout_width="wrap_content"

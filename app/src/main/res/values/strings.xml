@@ -14,4 +14,6 @@
     <string name="preview_image">Preview Image</string>
     <string name="upload_image_to_server">Upload image to server</string>
     <string name="user_profile">Profile Picture</string>
+    <string name="users_list">UsersList</string>
+    <string name="show_users_list">Show UsersList</string>
 </resources>

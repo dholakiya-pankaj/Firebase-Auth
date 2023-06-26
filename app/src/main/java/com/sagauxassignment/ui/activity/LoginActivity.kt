@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        binding?.loginToolbar?.tvTitle?.text = getString(R.string.login)
         setUpObserver()
         initClickListener()
         addTextWatcher()

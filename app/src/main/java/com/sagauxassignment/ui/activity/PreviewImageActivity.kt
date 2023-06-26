@@ -16,6 +16,8 @@ class PreviewImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_preview_image)
 
+        binding?.previewImageToolbar?.tvTitle?.text = getString(R.string.preview_image)
+
         val imageUri = intent.getStringExtra(AppConstants.IMAGE_URI)
         imageUri?.let {
             binding?.ivPreviewImage?.setImageURI(Uri.parse(it))

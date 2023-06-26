@@ -8,6 +8,13 @@
         android:layout_height="match_parent"
         tools:context=".ui.activity.ProfileActivity">
 
+        <include
+            android:id="@+id/updateProfileToolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <ImageView
             android:id="@+id/ivProfileImage"
             android:layout_width="wrap_content"
@@ -27,6 +34,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/upload_image"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@id/btnShowUsersList"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btnShowUsersList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/show_users_list"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -11,7 +11,9 @@ import com.sagauxassignment.databinding.ActivityUserListBinding
 import com.sagauxassignment.ui.adapter.UserListAdapter
 import com.sagauxassignment.ui.viewmodel.UserListViewModel
 import com.sagauxassignment.util.showToast
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserListActivity : AppCompatActivity() {
 
     private var binding: ActivityUserListBinding? = null
@@ -26,6 +28,7 @@ class UserListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this , R.layout.activity_user_list)
 
+        binding?.usersListToolbar?.tvTitle?.text = getString(R.string.users_list)
         setUpObserver()
         setUpRecyclerView()
         userListViewModel.getUserList()

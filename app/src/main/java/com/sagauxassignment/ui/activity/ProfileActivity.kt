@@ -58,6 +58,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
 
+        binding?.updateProfileToolbar?.tvTitle?.text = getString(R.string.profile_image)
         setUpObserver()
         initClickListener()
         loadImageFromPreference()
@@ -94,6 +95,10 @@ class ProfileActivity : AppCompatActivity() {
         binding?.run {
             btnUploadImage.setOnClickListener {
                 showImagePickerDialog()
+            }
+
+            btnShowUsersList.setOnClickListener {
+                startActivity(Intent(this@ProfileActivity, UserListActivity::class.java))
             }
         }
     }

@@ -59,10 +59,10 @@ class UserListViewModel @Inject constructor(
                 _errorMessage.value = "Sorry! Service is temporary unavailable. Please try again after sometime."
             }
             is ErrorEntity.AccessDenied -> {
-                _errorMessage.value = "Access denied due to invalid parameters"
+                _errorMessage.value = "Access denied due to invalid parameters."
             }
             else -> {
-                _errorMessage.value = "Unexpected error"
+                _errorMessage.value = "Unexpected error."
             }
         }
     }
