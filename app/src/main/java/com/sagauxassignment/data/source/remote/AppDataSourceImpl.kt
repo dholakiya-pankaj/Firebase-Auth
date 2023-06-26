@@ -4,8 +4,13 @@ import android.net.Uri
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.sagauxassignment.data.mapper.toDomain
+import com.sagauxassignment.data.service.ApiService
 import com.sagauxassignment.domain.ResultDataState
 import com.sagauxassignment.domain.User
+import com.sagauxassignment.domain.Users
+import com.sagauxassignment.domain.error.ErrorEntity
+import com.sagauxassignment.domain.error.ErrorHandler
 import com.sagauxassignment.util.AppConstants.CHILD_PROFILE_IMAGE_URL
 import com.sagauxassignment.util.AppConstants.IMAGE_EXTENSION
 import com.sagauxassignment.util.AppConstants.REFERENCE_PROFILE_IMAGES
@@ -14,9 +19,11 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AppDataSourceImpl @Inject constructor(
+    private val apiService: ApiService,
     private val firebaseAuth: FirebaseAuth,
     private val firebaseDatabase: FirebaseDatabase,
-    private val firebaseStorage: FirebaseStorage
+    private val firebaseStorage: FirebaseStorage,
+    private val errorHandler: ErrorHandler
 ) : AppDataSource {
 
     override suspend fun signUpWithFirebase(user: User): ResultDataState<Boolean> {
@@ -85,5 +92,17 @@ class AppDataSourceImpl @Inject constructor(
         firebaseDatabase.getReference(REFERENCE_USERS)
             .child(firebaseAuth.currentUser?.uid.toString() + "/" + CHILD_PROFILE_IMAGE_URL)
             .setValue(downloadedUri.toString())
+    }
+
+    override suspend fun getUserList(): ResultDataState<Users> {
+        runCatching {
+            apiService.getUsersList()
+        }.onSuccess {
+            return ResultDataState.Success(it.toDomain())
+        }.onFailure {
+            return ResultDataState.ErrorResult(errorHandler.getError(it))
+        }
+
+        return ResultDataState.ErrorResult(ErrorEntity.Unknown)
     }
 }

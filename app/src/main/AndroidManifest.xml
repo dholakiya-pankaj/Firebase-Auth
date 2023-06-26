@@ -20,6 +20,9 @@
         android:theme="@style/Theme.SagaUxAssignment"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.PreviewImageActivity"
             android:exported="false" />
         <activity

@@ -38,6 +38,7 @@ class SignUpViewModel @Inject constructor(
                     _errorMessage.value = response.errorMessage
                 }
                 else -> {
+                    _showLoader.value = false
                     _errorMessage.value = "Unexpected error."
                 }
             }

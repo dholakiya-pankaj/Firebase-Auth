@@ -38,6 +38,7 @@ class ProfileViewModel @Inject constructor(
                     _errorMessage.value = result.errorMessage
                 }
                 else -> {
+                    _showLoading.value = false
                     _errorMessage.value = "Unexpected error"
                 }
             }

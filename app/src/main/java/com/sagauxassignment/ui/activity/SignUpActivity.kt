@@ -99,6 +99,7 @@ class SignUpActivity : AppCompatActivity() {
         val isEmailEmpty = email.isEmpty()
         val isPassEmpty = password.isEmpty()
         val isUsernameEmpty = username.isEmpty()
+        val isStrongPassword = password.length >= 8
 
         if (isUsernameEmpty) {
             binding?.passwordEditText?.error = "Please enter your username."
@@ -111,7 +112,12 @@ class SignUpActivity : AppCompatActivity() {
         if (isPassEmpty) {
             binding?.passwordEditText?.error = "Please enter your password."
         }
-        return isEmailEmpty && isPassEmpty
+
+        if(isStrongPassword) {
+            binding?.passwordEditText?.error = "Password should have minimum 8 character."
+        }
+
+        return isEmailEmpty && isPassEmpty && isStrongPassword
     }
 
     private fun isValidFormat(email: String, password: String): Boolean {

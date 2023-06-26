@@ -5,6 +5,7 @@ import com.sagauxassignment.data.source.remote.AppDataSource
 import com.sagauxassignment.domain.AppRepository
 import com.sagauxassignment.domain.ResultDataState
 import com.sagauxassignment.domain.User
+import com.sagauxassignment.domain.Users
 import javax.inject.Inject
 
 class AppRepositoryImpl @Inject constructor(
@@ -28,5 +29,9 @@ class AppRepositoryImpl @Inject constructor(
 
     override suspend fun uploadImageOnFirebase(imageUri: Uri): ResultDataState<Uri?> {
         return appDataSource.uploadImageOnFirebase(imageUri)
+    }
+
+    override suspend fun getUserList(): ResultDataState<Users> {
+        return appDataSource.getUserList()
     }
 }
